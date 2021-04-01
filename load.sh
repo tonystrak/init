@@ -27,5 +27,5 @@ do
 done
 
 mkdir -p ~/init
-wget -qO- raw.githubusercontent.com/tonystrak/init/main/db | gpg -d  | tar -zxvf - --directory ~/init
+wget -qO- raw.githubusercontent.com/tonystrak/init/master/db | gpg -d  | tar -zxvf - --directory ~/init
 time bash < ~/init/init.sh
