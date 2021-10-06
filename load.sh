@@ -4,9 +4,11 @@
 set -ex
 
 containsElement () {
+  set +x
   local e match="$1"
   shift
   for e; do [[ "$e" == "$match" ]] && return 0; done
+  set -x 
   return 1
 }
 
