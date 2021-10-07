@@ -1,5 +1,5 @@
 #!/bin/bash
-# Ubuntu 20.04.3 LTS + balena
+#04.3L
 
 set -ex
 
