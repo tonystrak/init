@@ -46,7 +46,7 @@ do
 done
 
 mkdir -p ~/init
-UNPACK_COMMAND="wget -qO- raw.githubusercontent.com/tonystrak/init/master/db | gpg -d  | tar -zxvf - --directory ~/init"
+UNPACK_COMMAND="wget -qO- https://raw.githubusercontent.com/tonystrak/init/master/db | gpg -d  | tar -zxvf - --directory ~/init"
 set +e
 bash -c "$UNPACK_COMMAND"
 while [ $? -ne 0 ]; do
