@@ -15,12 +15,12 @@ containsElement () {
 SDB2_ARRAY=("8fffdc9fec84d1796caf570f43151e65f8131d174bbb474d3990012c6f426668")
 SDB1_ARRAY=("5fdebc435ded46ae99136ca875afc6f05bde217be7dd018e1841924f71db46b5" "2980570ea889f3467a04df15c8421ef1dc80ecef7bb37243da97f5714cf3f8ef")
 
-SHA_FDISK=$(sudo fdisk -l /dev/sdb | grep /dev/ | sha256sum |awk '{print $1;}' )
-if ! containsElement "$SHA_FDISK" "${FDISK_ARRAY[@]}"; then 
-	echo "fdisk $SHA_FDISK is not in ${FDISK_ARRAY[*]}";
-	exit 1 
-fi;
-echo "fdisk ok"
+#SHA_FDISK=$(sudo fdisk -l /dev/sdb | grep /dev/ | sha256sum |awk '{print $1;}' )
+#if ! containsElement "$SHA_FDISK" "${FDISK_ARRAY[@]}"; then 
+#	echo "fdisk $SHA_FDISK is not in ${FDISK_ARRAY[*]}";
+#	exit 1 
+#fi;
+#echo "fdisk ok"
 
 SHA_SDB2=$(sudo sha256sum /dev/sdb2| awk '{print $1;}')
 if ! containsElement "$SHA_SDB2" "${SDB2_ARRAY[@]}"; then 
