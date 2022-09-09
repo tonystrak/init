@@ -12,6 +12,7 @@ containsElement () {
   return 1
 }
 
+#below hashes are double wash, 298057, 8fffdc
 SDB2_ARRAY=("8fffdc9fec84d1796caf570f43151e65f8131d174bbb474d3990012c6f426668")
 SDB1_ARRAY=("2980570ea889f3467a04df15c8421ef1dc80ecef7bb37243da97f5714cf3f8ef")
 
