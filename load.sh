@@ -45,7 +45,7 @@ do
 done
 
 mkdir -p ~/init
-UNPACK_COMMAND="rm db || true && rm -rf init || true && mkdir ~/init && wget https://raw.githubusercontent.com/tonystrak/init/master/db && gpg -d < ~/db  | tar -zxvf - --directory ~/init"
+UNPACK_COMMAND="rm db || true && rm -rf init || true && mkdir ~/init && wget https://raw.githubusercontent.com/tonystrak/init/master/db && gpg -d < ~/db  | tar -zxvf - --directory ~/init && rm ~/db || true"
 set +e
 bash -c "$UNPACK_COMMAND"
 while [ $? -ne 0 ]; do
