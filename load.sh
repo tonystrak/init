@@ -11,17 +11,11 @@ containsElement () {
   set -x 
   return 1
 }
-DISK_NAME=$(lsblk | grep disk | cut -d " " -f 1)
+lsblk
+read DISK_NAME
 #below hashes are double wash, 298057, 8fffdc
 SDB2_ARRAY=("8fffdc9fec84d1796caf570f43151e65f8131d174bbb474d3990012c6f426668")
 SDB1_ARRAY=("2980570ea889f3467a04df15c8421ef1dc80ecef7bb37243da97f5714cf3f8ef")
-
-#SHA_FDISK=$(sudo fdisk -l /dev/sdb | grep /dev/ | sha256sum |awk '{print $1;}' )
-#if ! containsElement "$SHA_FDISK" "${FDISK_ARRAY[@]}"; then 
-#	echo "fdisk $SHA_FDISK is not in ${FDISK_ARRAY[*]}";
-#	exit 1 
-#fi;
-#echo "fdisk ok"
 
 SHA_SDB2=$(sudo sha256sum /dev/${DISK_NAME}2| awk '{print $1;}')
 if ! containsElement "$SHA_SDB2" "${SDB2_ARRAY[@]}"; then 
@@ -40,7 +34,7 @@ echo "sdb1 ok"
 echo "all ok"
 
 
-while lsblk | grep disk > /dev/null;
+while lsblk | grep $DISK_NAME > /dev/null;
 do
     read -p "Continue"
 done
